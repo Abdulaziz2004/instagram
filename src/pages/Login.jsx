@@ -3,12 +3,19 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import insta from "../assets/Instagram Logo.svg";
 import oval from "../assets/Oval.svg";
-
+import back from "../assets/Shape.svg";
 import SignIn from "./SignIn";
 
 const Login = () => {
   return (
     <LoginContainer>
+
+  <div className='back'>
+          <Link to="/">
+            <img src={back} alt="" />
+          </Link>
+ </div>
+
       <div className="insta-logo">
         <Link to="/">
           <img src={insta} alt="" />
@@ -40,8 +47,11 @@ export default Login;
 const LoginContainer = styled.div`
   width: 100%;
   background-color: #ffffff;
-  padding: 240px 34px 20px 34px;
+  padding: 50px 34px 20px 34px;
 
+  .back{
+    margin-bottom: 90px;
+  }
   .insta-logo {
     margin-bottom: 52px;
     text-align: center;

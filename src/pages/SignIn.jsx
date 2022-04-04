@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import back from "../assets/Shape.svg";
+
 import logo from "../assets/Instagram Logo.svg";
 import facebook from "../assets/facebook.svg";
 import { Link } from 'react-router-dom';
@@ -9,11 +9,6 @@ const SignIn = () => {
   return (
     <Wrapper>
       <div className='signin__container'>
-        <div className='back'>
-          <Link to="/">
-            <img src={back} alt="" />
-          </Link>
-        </div>
 
 
         <div className='logo'>
@@ -62,11 +57,9 @@ const Wrapper = styled.div`
   .signin__container {
     max-width: 375px;
     background: white;
-    padding: 56px 16px 20px 16px;
+    padding: 168px 16px 20px 16px;
 
-    .back{
-      margin-bottom: 90px;
-    }
+
 
     .logo{
       display: flex;
