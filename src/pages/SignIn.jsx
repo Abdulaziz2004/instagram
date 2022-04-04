@@ -112,6 +112,10 @@ const Wrapper = styled.div`
       color: #FFFFFF;
       opacity: 0.5;
       margin-bottom: 35px;
+
+      &:active{
+        opacity: 1;
+      }
     }
 
     .login__facebook{
