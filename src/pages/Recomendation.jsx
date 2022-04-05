@@ -52,7 +52,9 @@ const Recomendation = () => {
 
       <div className="cart">
         <div className="grid">
-          {cartData.map(({id, img, title}) => <img key={id} src={img} alt=""/>)}
+          {cartData.map(data => (
+            <img key={data.id} src={data.img} alt=""/>
+          ))}
         </div>
       </div>
     </Wrapper>
