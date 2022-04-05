@@ -2,10 +2,12 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
-      home
-    </div>
+    <Wrapper>
+      hello      
+    </Wrapper>
   );
 };
 
 export default Home;
+
+const Wrapper = styled.div``;
