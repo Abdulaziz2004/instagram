@@ -1,4 +1,5 @@
 import {Routes, Route} from 'react-router-dom'
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login'
 import Recomendation from './pages/Recomendation';
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/recomendation' element={<Recomendation/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }
