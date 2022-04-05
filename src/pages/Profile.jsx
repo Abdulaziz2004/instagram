@@ -8,9 +8,33 @@ import friends from "../assets/Friends.png";
 import sport from "../assets/Sports.png";
 import design from "../assets/Design.png";
 import plus from "../assets/plusStory.png";
+import gridIcon from "../assets/Grid Icon.svg";
+import tagIcon from "../assets/Tags Icon.svg";
+import profile from "../assets/profile.png";
+import profile2 from "../assets/profile_2.png";
+import profile3 from "../assets/profile_3.png";
+import profile4 from "../assets/profile_4.png";
+import profile5 from "../assets/profile_5.png";
+import profile6 from "../assets/profile_6.png";
+import profile7 from "../assets/profile_7.png";
+import profile8 from "../assets/profile_8.png";
+import profile9 from "../assets/profile_9.png";
 
 
 const Profile = () => {
+
+    const profileData = [
+        {img: profile},
+        {img: profile2},
+        {img: profile3},
+        {img: profile4},
+        {img: profile5},
+        {img: profile6},
+        {img: profile7},
+        {img: profile8},
+        {img: profile9},
+    ]
+
     return (
         <Wrapper>
             <div className='header'>
@@ -66,6 +90,19 @@ const Profile = () => {
                 <div>
                     <img src={design} alt="" />
                     <p>Design</p>
+                </div>
+            </div>
+
+            <div className='profile__posts'>
+                <div className='posts__type'>
+                    <img src={gridIcon} alt="" />
+                    <img src={tagIcon} alt="" />
+                </div>
+
+                <div className='posts'>
+                    {profileData.map((data) => (
+                        <img src={data.img} />
+                    ))}
                 </div>
             </div>
         </Wrapper>
@@ -185,6 +222,26 @@ const Wrapper = styled.div`
         .new{
             img{
                 padding: 21px;
+            }
+        }
+    }
+
+    .profile__posts{
+        width: 100%;
+        height: 285px;
+        overflow: hidden;
+
+        .posts__type{
+            padding: 11px 82px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .posts{
+            overflow-y: scroll;
+
+            ::-webkit-scrollbar {
+                display: none;
             }
         }
     }
