@@ -1,6 +1,7 @@
 import {Routes, Route} from 'react-router-dom'
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Like from './pages/Like';
 import Login from './pages/Login'
 import Profile from './pages/Profile';
 import Recomendation from './pages/Recomendation';
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/recomendation' element={<Recomendation/>}/>
         <Route path='/profile' element={<Profile />}/>
+        <Route path='/like' element={<Like/>}/>
       </Routes>
       <Footer/>
     </div>

@@ -27,7 +27,7 @@ const Footer = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink to="/">
+          <NavLink to="/like">
             <Heart/>
           </NavLink>
         </div>

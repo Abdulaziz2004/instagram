@@ -52,7 +52,7 @@ const Home = () => {
 
       <div className="post">
         <div className="post-title">
-          <div className="post-text">
+          <div className="post- ">
             <div>
               <img src={post} alt="" />
             </div>
