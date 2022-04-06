@@ -22,7 +22,7 @@ const Footer = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink to="/">
+          <NavLink to="/add">
             <Plus/>
           </NavLink>
         </div>
