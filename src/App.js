@@ -1,5 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import Footer from './components/Footer';
+import PrivateRoutes from './components/PrivateRoutes';
 import Addposts from './pages/AddPosts';
 import Home from './pages/Home';
 import Like from './pages/Like';
@@ -12,14 +13,14 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/* <Route path='/' element={<SignIn/>}/> */}
-        {/* <Route path='/signIn' element={<Login/>}/> */}
+        <Route path='/signIn' element={ <SignIn/>}/>
+        <Route path='/login' element={<Login/>}/>
 
-        <Route path='/' element={<Home/>}/>
-        <Route path='/recomendation' element={<Recomendation/>}/>
-        <Route path='/profile' element={<Profile />}/>
-        <Route path='/like' element={<Like/>}/>
-        <Route path='/add' element={<Addposts/>}/>
+        <Route path='/' element={<PrivateRoutes> <Home/> </PrivateRoutes>}/>
+        <Route path='/recomendation' element={<PrivateRoutes> <Recomendation/> </PrivateRoutes>}/>
+        <Route path='/profile' element={<PrivateRoutes> <Profile /> </PrivateRoutes>}/>
+        <Route path='/like' element={<PrivateRoutes> <Like/> </PrivateRoutes>}/>
+        <Route path='/add' element={<PrivateRoutes> <Addposts/> </PrivateRoutes>}/>
       </Routes>
       <Footer/>
     </div>

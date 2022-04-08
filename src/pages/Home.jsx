@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import cameraIcon from "../assets/Camera Icon.svg";
 import logo from "../assets/Instagram Logo.svg";
@@ -18,16 +18,26 @@ import teleg from "../assets/teleg.svg";
 import pagination from "../assets/Pagination.svg";
 import saved from "../assets/saved.svg";
 import likeComment from "../assets/like-comment.svg";
-
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Home = () => {
+
+  const [posts, setPosts] = useState([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    axios.get("https://searching-server.herokuapp.com/post")
+    .then(res => setPosts(res.data))
+  }, [])
+
   const homeData = [
-    { img: myStory, title: "Your Story" },
-    { img: peopleOne, title: "karennne" },
-    { img: peopleTwo, title: "zackjohn" },
-    { img: peopleThree, title: "kieron_d" },
-    { img: peopleThree, title: "kieron_d" },
-    { img: peopleThree, title: "kieron_d" },
+    { id: 1, img: myStory, title: "Your Story" },
+    { id: 2, img: peopleOne, title: "karennne" },
+    { id: 3, img: peopleTwo, title: "zackjohn" },
+    { id: 4, img: peopleThree, title: "kieron_d" },
+    { id: 5, img: peopleThree, title: "kieron_d" },
+    { id: 6, img: peopleThree, title: "kieron_d" },
   ];
 
   return (
@@ -43,7 +53,7 @@ const Home = () => {
 
       <div className="stories">
         {homeData.map((data) => (
-          <div className="story__container">
+          <div className="story__container" key={data.id}>
             <img src={data.img} />
             <p>{data.title}</p>
           </div>
@@ -51,31 +61,33 @@ const Home = () => {
       </div>
 
       <div className="post">
-        <div className="post-title">
-          <div className="post- ">
+        {posts.map(data => (
+          <div key={Math.random()} className="post-title">
+          <div className="post-text ">
             <div>
-              <img src={post} alt="" />
+              <img src={`https://searching-server.herokuapp.com/attach/open/${data.attachs}`} alt="" />
             </div>
             <div>
-              <h5>joshua_l</h5>
-              <span>Tokyo, Japan</span>
+              <h5>{data.title}</h5>
+              <span>{data.location}</span>
             </div>
           </div>
           <div>
             <img src={More} alt="" />
           </div>
         </div>
+         ))} 
 
         <div className="post-img">
-          <img src={PostImg} alt=""/>
+          <img src={PostImg} alt="" />
         </div>
 
         <div className="comment">
           <div className="commit-grid">
             <div className="telegContainer">
-              <img src={heart} alt=""/>
-              <img src={massage} alt=""/>
-              <img src={teleg} alt=""/>
+              <img src={heart} alt="" />
+              <img src={massage} alt="" />
+              <img src={teleg} alt="" />
             </div>
             <div className="pagenation">
               <img src={pagination} alt="" />
@@ -86,10 +98,17 @@ const Home = () => {
           </div>
 
           <div className="like-comment">
-            <div><img src={likeComment} alt=""/></div>
             <div>
-              <p>Liked by <b>craig_love</b> and <b>44,686 others</b></p> 
-              <p><b>joshua_l</b> The game in Japan was amazing and I want to share some photos</p>
+              <img src={likeComment} alt="" />
+            </div>
+            <div>
+              <p>
+                Liked by <b>craig_love</b> and <b>44,686 others</b>
+              </p>
+              <p>
+                <b>joshua_l</b> The game in Japan was amazing and I want to
+                share some photos
+              </p>
             </div>
           </div>
         </div>
@@ -102,7 +121,7 @@ export default Home;
 
 const Wrapper = styled.div`
   /* height: 800px; */
-  border-bottom: 2px solid #DDDDDF;
+  border-bottom: 2px solid #dddddf;
 
   .header {
     display: flex;
@@ -131,8 +150,8 @@ const Wrapper = styled.div`
     display: flex;
     padding: 10px 0px 8px 12px;
     overflow-x: scroll;
-    border-bottom: 1px solid #DBDBDC;
-    border-top: 1px solid #DBDBDC;
+    border-bottom: 1px solid #dbdbdc;
+    border-top: 1px solid #dbdbdc;
     background-color: #fff;
 
     ::-webkit-scrollbar {
@@ -195,41 +214,41 @@ const Wrapper = styled.div`
     }
   }
 
-  .comment{
-    padding: 14px 17px 10px 14px; 
+  .comment {
+    padding: 14px 17px 10px 14px;
 
-    .commit-grid{
+    .commit-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
 
-      .telegContainer{
+      .telegContainer {
         display: flex;
         align-items: center;
         gap: 18px;
       }
 
-      .pagenation{
+      .pagenation {
         text-align: center;
       }
 
-      .saved{
+      .saved {
         margin-left: auto;
       }
     }
 
-    .like-comment{
+    .like-comment {
       display: flex;
       gap: 7px;
       margin-top: 17px;
 
-      p{
+      p {
         font-weight: 400;
         font-size: 13px;
         line-height: 18px;
         letter-spacing: -0.1px;
         color: #262626e9;
 
-        b{
+        b {
           font-weight: bold;
           color: black;
         }
